@@ -1,0 +1,42 @@
+<!-- employee-form.component.html -->
+
+
+  <form [formGroup]="formemployer" (ngSubmit)="onSubmit()">
+    <section id="basic-input">
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+                  <div class="card-header">
+                      <h4 class="card-title">Modifier un employé</h4>
+              <div class="card-content">
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col-md-6">
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" class="form-control" id="nom" formControlName="nom" />
+    </div>
+    <div class="form-group">
+      <label for="prenom">Prenom</label>
+      <input type="text" class="form-control" id="prenom" formControlName="prenom" />
+    </div>
+    <div class="form-group">
+      <label for="mail">Mail</label>
+      <input type="email" class="form-control" id="mail" formControlName="mail" />
+    </div>
+    <div class="form-group">
+      <label for="tel">Tel</label>
+      <input type="text" class="form-control" id="tel" formControlName="tel" />
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</form>

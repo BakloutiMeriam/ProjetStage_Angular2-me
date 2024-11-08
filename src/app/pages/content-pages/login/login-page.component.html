@@ -1,0 +1,53 @@
+<!--Login Page Starts-->
+<section id="login">
+  <div class="row auth-height full-height-vh m-0">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+      <div class="card overflow-hidden">
+        <div class="card-content">
+          <div class="card-body auth-img">
+            <div class="row m-0">
+              <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center auth-img-bg p-3">
+                <img src="assets/img/gallery/loginn.jpg" alt="" class="img-fluid" width="300" height="230">
+              </div>
+              <div class="col-lg-6 col-12 px-4 py-3">
+                <h4 class="mb-2 card-title">Connexion</h4>
+                <!--<ngb-alert type="light-danger" class="mb-2" *ngIf="isLoginFailed" (close)="isLoginFailed = false">
+                  <p class="mb-0">Errors lors de connexion </p>
+                </ngb-alert> -->
+                <form [formGroup]="loginForm">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && lf.email.invalid }" />
+                    <div *ngIf="emailIncorrect" class="alert alert-danger" role="alert"aria-placeholder="votre email">
+                      L'email est incorrect.
+                    </div>
+                    <div *ngIf="submitted && lf.email.invalid" class="invalid-feedback">
+                      <div *ngIf="lf.email.errors.required">Email est requis</div>
+                      <div *ngIf="lf.email.errors.email">Email doit être une adresse email valide</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Mots de passe</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && lf.password.invalid }" />
+                    <div *ngIf="passwordIncorrect" class="alert alert-danger" role="alert" aria-placeholder="votre mot de passe">
+                      Le mot de passe est incorrect.
+                    </div>
+                    <div *ngIf="submitted && lf.password.invalid" class="invalid-feedback">Mot de passe est requis</div>
+                  </div>
+                  <div class="d-sm-flex justify-content-between mb-3 font-small-2">
+                    <a [routerLink]="['/pages/forgotpassword']">Mot de passe oublie</a>
+                  </div>
+                  <div class="d-flex justify-content-between flex-sm-row flex-column">
+                    <a  class="btn btn-primary" (click)="onSubmit()">Connexion</a>
+                  </div>
+                </form>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Login Page Ends-->

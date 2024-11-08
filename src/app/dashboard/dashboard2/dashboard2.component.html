@@ -1,0 +1,105 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="current-date-time">
+      {{ currentDateTime | date: 'dd/MM/yyyy HH:mm:ss' }}
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center"> <!-- Utilisation de justify-content-center pour centrer horizontalement -->
+    <div class="col-sm-12">
+      <div class="content-header">Détail de l'employée</div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center"> <!-- Utilisation de justify-content-center pour centrer horizontalement -->
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Durée</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <form #employeeForm="ngForm" (ngSubmit)="calculateTotalHours(employeeForm)">
+              <div class="form-group">
+                <label for="nom">Id de l'employé</label>
+                <input type="text" class="form-control" [(ngModel)]="employeeId" name="employeeId" placeholder="Id" required />
+              </div>
+              <div class="form-group">
+                <label for="minDate">De</label>
+                <input type="date" class="form-control" ngModel name="minDate" #minDate="ngModel" placeholder="minDate" required />
+              </div>
+              <div class="form-group mb-2">
+                <label for="maxDate">À</label>
+                <input type="date" class="form-control" ngModel name="maxDate" #maxDate="ngModel" placeholder="maxDate" required />
+              </div>
+              <button type="submit" class="btn btn-primary">Details</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row match-height">
+  <div class="col-md-4 col-12">
+    <div class="card">
+      <div class="card-header text-center pb-0">
+        <span class="font-medium-2 warning">Nombre total des heures</span>
+        <h3 class="font-large-2 mt-2">{{ totalTime }}</h3>
+      </div>    
+      <div class="card-content">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4 col-12">
+    <div class="card">
+      <div class="card-header text-center pb-0">
+        <span class="font-medium-2 info">Nombre de jour absente</span>
+        <h3 class="font-large-2 mt-2">{{ absenceDays }}
+          <span class="font-medium-1 grey text-bold-400">Jours</span>
+        </h3>
+      </div>
+      <div class="card-content">
+        <canvas baseChart
+                [data]="donutChartData.data.series"
+                [labels]="donutChartData.data.labels"
+                [chartType]="donutChartData.type"
+                [options]="donutChartData.options"
+                [legend]="donutChartData.options.legend">
+        </canvas>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4 col-12">
+    <div class="card">
+      <div class="card-header text-center pb-0">
+        <span class="font-medium-2 danger">Nombre de heures supplémentaire</span>
+        <h3 class="font-large-2 mt-2">{{ heuresSupplementaires }}</h3>
+      </div>
+      <div class="card-content">
+        <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="'pie'"
+                [options]="pieChartOptions"
+                [legend]="pieChartLegend"
+                class="height-250">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>
+

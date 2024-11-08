@@ -1,0 +1,41 @@
+<form [formGroup]="formemployer" (ngSubmit)="submit()">
+    <section id="basic-input">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Ajouter un employé</h4>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                    
+                                <fieldset class="form-group">
+                                    <label for="helperText">Nom :</label>
+                                    <input type="text" id="helperText" class="form-control" placeholder="nom" formControlName="nom">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="helperText">Prénom :</label>
+                                    <input type="text" id="helperText" class="form-control" placeholder="prenom" formControlName="prenom">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="helperText">E_mail</label>
+                                    <input type="text" id="helperText" class="form-control" placeholder="mail" formControlName="mail">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="helperText">N°télephone</label>
+                                    <input type="text" id="helperText" class="form-control" placeholder="tel" formControlName="tel">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <tr><td><button class="btn btn-primary" type="submit">Ajouter</button></td><td><button class="btn btn-primary" type="reset">Reset</button></td></tr>
+                        
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </form>
+    
